@@ -10,7 +10,6 @@ typedef struct {
 // global variables
 int userX, userY;
 
-// function to compare two points based on the distance from the userd position
 int compareTo(Point *ptrPt1, Point *ptrPt2) {
     // calculate the distance of the first point using formula 
     int d1 = (ptrPt1->x - userX) * (ptrPt1->x - userX) + (ptrPt1->y - userY) * (ptrPt1->y - userY);
@@ -42,7 +41,6 @@ int compareTo(Point *ptrPt1, Point *ptrPt2) {
     return 0;  
 }
 
-// function to perform insertion sort on an array of points between left and right indiciies
 void insertionSort(Point arr[], int left, int right) {
     int i, j;
     Point item;
@@ -61,7 +59,6 @@ void insertionSort(Point arr[], int left, int right) {
     }
 }
 
-// merge function used in merge sort to combine two sorted halves of an array
 void merge(Point arr[], int left, int mid, int right) {
     // calculate the sizes of the two subarrays
     int n1 = mid - left + 1, n2 = right - mid;
@@ -97,9 +94,8 @@ void merge(Point arr[], int left, int mid, int right) {
     free(R);
 }
 
-// function to recursively perform merge sort on an array of points
 void mergeSort(Point arr[], int left, int right, int t) {
-    // if the number of elements is smaller than or equal to t, use insertion sort
+    // use insertion sort if the number of elements is smaller than or equal to t
     if (right - left + 1 <= t) {
         insertionSort(arr, left, right);
         return;
@@ -113,12 +109,10 @@ void mergeSort(Point arr[], int left, int right, int t) {
     merge(arr, left, mid, right);
 }
 
-// function to sort an array of points using merge sort 
 void sortPoints(Point arr[], int n, int t) {
     mergeSort(arr, 0, n - 1, t);  
 }
 
-// function to perform binary search on an array of points to find a point
 int binarySearch(Point arr[], int n, int x, int y) {
     int left = 0, right = n - 1;
 
@@ -139,7 +133,6 @@ int binarySearch(Point arr[], int n, int x, int y) {
     return -1;  // point not found
 }
 
-// function to read the input data
 Point* readData(int *n, int *s, int *t) {
     scanf("%d %d %d %d %d", &userX, &userY, n, s, t);
 
