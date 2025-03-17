@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 /* COP 3502C Programming Assignment 4
    This program is written by: Jalil Fountain */
